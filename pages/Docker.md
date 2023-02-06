@@ -1,0 +1,60 @@
+- 用途
+	- 提供**统一**的环境
+	- 提供**快速拓展**、弹性伸缩的云服务
+	- 防止其他用户的进程吧服务器资源**占用过多**
+- 特点
+	- 标准化
+		- 运输方式（把程序和环境从一个机器运到另一个机器的）
+		- 存储方式（程序和环境的存储）
+		- API接口（不需要Tomcat等应用的命令了，都标准化了）
+	- 灵活：即使是最复杂的应用也可以记集装箱化
+	- 轻量级：容器利用并共享主机内核
+	- 便携式：可以在本地构建，部署到云，并在任何地方运行
+- image镜像
+	- 存储：联合文件系统，UnionFS
+- 容器
+	- 镜像类似于java中的类，而容器就是实例
+	- 容器的这一层是可以修改的，而镜像是不可以修改的
+	- 同一个镜像可以生成多个容器独立运行，而他们之间没有任何的干扰
+- 仓库
+	- hub.docker.com
+	- https://c.163yun.com/hub#/m/home/
+- client和deamon
+	- `client`提供给用户一个终端，用户输入Docker提供的命令来管理本地或远程的服务器
+	- `deamon`服务端守护进程，接受Client发送的命令并执行相应的操作
+- 命令
+	- 下载镜像
+		- `docker pull [OPTIONS] NAME:[:TAG]`
+	- 查看镜像
+		- `docker images [OPTIONS] [REPOSITORY[:TAG]]`
+	- 运行镜像
+		- `docker run [OPTIONS] IMAGE [COMMAND] [ARG...]`
+	- 后台运行
+		- `docker run -d nginx`
+	- 进入容器
+		- `docker exec [OPTIONS] CONTAINER COMMAND [ARG...]`
+		- -it 内部终端映射到本地终端
+		- `docker exec -it 62941295554d bash`
+	- 停止容器
+		- ` docker stop 66`
+- Docker的网络模式
+	- Bridge
+	- Host
+		- 映射宿主机的端口
+	- None
+	- 端口映射
+		- 本机8080映射到容器里的80端口
+			- `docker run -d -p 8080:80 nginx`
+		- -P ：随机端口映射
+			- `docker run -d -P nginx`
+- 制作镜像
+	- Dockerfile
+		- ```docker
+		  FROM alpine:latest
+		  MAINTAINER jack
+		  CMD echo 'hello my dockerfile'
+		  ```
+	- 利用Dockerfile打包成镜像s
+		- `docker build -t hello_docker .`
+	- 运行
+		- `docker % docker run hello_docker`

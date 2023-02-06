@@ -1,0 +1,4 @@
+- 文档
+	- [FileReader - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader)
+	- [例子：显示用户选择的图片的缩略图 - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/File_API/Using_files_from_web_applications#%E4%BE%8B%E5%AD%90%EF%BC%9A%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7%E9%80%89%E6%8B%A9%E7%9A%84%E5%9B%BE%E7%89%87%E7%9A%84%E7%BC%A9%E7%95%A5%E5%9B%BE)
+	-

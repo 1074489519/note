@@ -1,0 +1,15 @@
+- 配置文件路径
+	- `/etc/nginx/nginx.conf`
+- 指定配置文件运行
+	- ` nginx -c /etc/nginx/nginx.conf`
+- 停止 - stop
+	- `nginx -s`
+	- quit - 优雅停止
+		- `nginx -s quit`
+	- 重启 - reload
+		- `nginx -s reload`
+	- 更换日志文件 - reopen
+- 配置文件语法
+	- `include` - 引入
+	- `#` - 注释
+	- `$` - 变量

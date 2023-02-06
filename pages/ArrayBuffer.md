@@ -1,0 +1,3 @@
+- 文档
+	- [ArrayBuffer - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray)
+	- [ArrayBuffer · ECMAScript 6 入门（第三版）](https://wizardforcel.gitbooks.io/es6-tutorial-3e/content/docs/arraybuffer.html)

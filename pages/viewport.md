@@ -1,0 +1,10 @@
+- 用法
+	- `<meta name="viewport" content="width=500, initial-scale=1">`
+- 这里只指定了两个属性，宽度和缩放，实际上 viewport 能控制的更多，它能表示的全部属性如下：
+	- width：页面宽度，可以取值具体的数字，也可以是 device-width，表示跟设备宽度相等。
+	- height：页面高度，可以取值具体的数字，也可以是 device-height，表示跟设备高度相等。
+	- initial-scale：初始缩放比例。
+	- minimum-scale：最小缩放比例。
+	- maximum-scale：最大缩放比例。
+	- user-scalable：是否允许用户缩放。
+	-

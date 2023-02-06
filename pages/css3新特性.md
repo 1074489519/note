@@ -1,0 +1,372 @@
+- ## 过度
+	- > CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。要实现这一点，必须规定两项内容：指定要添加效果的CSS属性指定效果的持续时间。
+	- 语法：
+	- ```css
+	  transition： CSS属性，花费时间，效果曲线(默认ease)，延迟时间(默认0)
+	  ```
+	- 案例1:
+	- ```css
+	  /*宽度从原始值到制定值的一个过渡，运动曲线ease,运动时间0.5秒，0.2秒后执行过渡*/
+	  transition：width,.5s,ease,.2s
+	  ```
+	- 案例2:
+	- ```css
+	  /*所有属性从原始值到制定值的一个过渡，运动曲线ease,运动时间0.5秒*/
+	  transition：all,.5s
+	  ```
+	- 上面栗子是简写模式，也可以分开写各个属性
+	- ```css
+	  transition-property: width;
+	  transition-duration: 1s;
+	  transition-timing-function: linear;
+	  transition-delay: 2s;
+	  ```
+- ## 动画
+	- 语法：
+	- ```css
+	  animation：动画名称，一个周期花费时间，运动曲线（默认ease），动画延迟（默认0），播放次数（默认1），是否反向播放动画（默认normal），是否暂停动画（默认running）
+	  ```
+	- 案例1:
+	- ```css
+	  /*执行一次logo2-line动画，运动时间2秒，运动曲线为 linear*/
+	  animation: logo2-line 2s linear;
+	  ```
+	- 案例2:
+	- ```css
+	  /*2秒后开始执行一次logo2-line动画，运动时间2秒，运动曲线为 linear*/
+	  animation: logo2-line 2s linear 2s;
+	  ```
+	- 案例3:
+	- ```css
+	  /*无限执行logo2-line动画，每次运动时间2秒，运动曲线为 linear，并且执行反向动画*/
+	  animation: logo2-line 2s linear alternate infinite;
+	  ```
+- ## 形状转换
+	- 语法：
+	- ```css
+	  transform:适用于2D或3D转换的元素
+	  transform-origin：转换元素的位置（围绕那个点进行转换）。默认(x,y,z)：(50%,50%,0)
+	  ```
+	- 案例：
+	- `transform:rotate(30deg);`
+	- ![image.png](../assets/image_1661154007999_0.png)
+	- `transform:translate(30px,30px);`
+	- ![image.png](../assets/image_1661154027922_0.png)
+	- `transform:scale(.8);`
+	- ![image.png](../assets/image_1661154050089_0.png)
+	- `transform: skew(10deg,10deg);`
+	- ![image.png](../assets/image_1661154059301_0.png)
+	- `transform:rotateX(180deg);`
+	- ![](https://segmentfault.com/img/bVTdHv?w=142&h=97)
+	- `transform:rotateY(180deg);`
+	- ![](https://segmentfault.com/img/bVTdHA?w=142&h=97)
+	- `transform:rotate3d(10,10,10,90deg);`
+	- ![](https://segmentfault.com/img/bVTdHU?w=182&h=114)
+- ## 阴影
+	- 语法：
+	- ```css
+	  box-shadow: 水平阴影的位置 垂直阴影的位置 模糊距离 阴影的大小 阴影的颜色 阴影开始方向（默认是从里往外，设置inset就是从外往里）;
+	  ```
+	- 案例：
+	- ```css
+	  div
+	  {
+	      width:300px;
+	      height:100px;
+	      background:#09f;
+	      box-shadow: 10px 10px 5px #888888;
+	  }
+	  ```
+	- 运行效果:
+	- ![image.png](../assets/image_1661154194701_0.png)
+- ## 边框
+	- ### 1. 边框图片
+	  collapsed:: true
+		- 语法：
+		- ```css
+		  border-image: 图片url 图像边界向内偏移 图像边界的宽度(默认为边框的宽度) 用于指定在边框外部绘制偏移的量（默认0） 铺满方式--重复（repeat）、拉伸（stretch）或铺满（round）（默认：拉伸（stretch））;
+		  ```
+		- 案例：边框图片
+		- ```css
+		  .demo {
+		      border: 15px solid transparent;
+		      padding: 15px;   
+		      border-image: url(border.png);
+		      border-image-slice: 30;
+		      border-image-repeat: round;
+		      border-image-outset: 0;
+		  }
+		  ```
+		-
+		- 原图：
+		- ![image.png](../assets/image_1661154284457_0.png)
+		- 运行效果:
+		- ![image.png](../assets/image_1661154333200_0.png)
+		-
+	- ### 2. 边框圆角
+	  collapsed:: true
+		- 语法：
+		- ```css
+		  border-radius: n1,n2,n3,n4;
+		  border-radius: n1,n2,n3,n4/n1,n2,n3,n4;
+		  /*n1-n4四个值的顺序是：左上角，右上角，右下角，左下角。*/
+		  ```
+		- 案例：
+		- ```css
+		  div
+		  {
+		      border:2px solid #a1a1a1;
+		      padding:10px 40px; 
+		      background:#dddddd;
+		      text-align:center;
+		      width:300px;
+		      border-radius:25px 0 25px 0;
+		  }
+		  ```
+		- 运行结果:
+		- ![image.png](../assets/image_1661154506016_0.png)
+		-
+- ## 背景
+	- ### background-clip
+	  collapsed:: true
+		- 制定背景绘制（显示）区域
+		- 默认情况（从边框开始绘制）
+		- ![image.png](../assets/image_1661154582090_0.png)
+		- 从padding开始绘制（显示），不算border,，相当于把border那里的背景给裁剪掉！（background-clip: padding-box;）
+		- ![image.png](../assets/image_1661154630663_0.png)
+		- 只在内容区绘制（显示），不算padding和border，相当于把padding和border那里的背景给裁剪掉！（background-clip: content-box;）
+		- ![image.png](../assets/image_1661154645786_0.png)
+		-
+	- ### background-origin
+	  collapsed:: true
+		- `background-Origin`属性指定`background-position`属性应该是相对位置
+		- 下面的div初始的html和css代码都是一样的。如下:
+		- html
+		- ```html
+		  <div>
+		  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+		  </div>
+		  ```
+		- css
+		- ```css
+		  div
+		  {
+		      border:10px dashed black;
+		      padding:35px;
+		      background:url('logo.png') no-repeat,#ccc;
+		      background-position:0px 0px;
+		  }
+		  ```
+		- 下面看下，background-origin不同的三种情况
+		- ![image.png](../assets/image_1661154731172_0.png)
+		-
+	- ### background-size
+	  collapsed:: true
+		- 这个相信很好理解，就是制定背景的大小
+		- 下面的div初始的html和css代码都是一样的。如下:
+		- html
+		- ```html
+		  <div>
+		  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+		  </div>
+		  ```
+		- css
+		- ```css
+		  div
+		  {
+		      border:1px dashed black;
+		      padding:35px;
+		      background:url('test.jpg') no-repeat;
+		  }
+		  
+		  ```
+		- ![image.png](../assets/image_1661154805112_0.png)
+		- ### 多张背景图
+			- 这个没什么，就是在一张图片，使用多张背景图片，代码如下！
+			- html
+			- ```html
+			  <p>两张图片的背景</p>
+			  <div>
+			  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+			  </div>
+			  ```
+			- css
+			- ```css
+			  div
+			  {
+			      border:1px dashed black;
+			      padding:35px;
+			      background-size: contain;
+			      background:url('test.jpg') no-repeat left,url(logo.png) no-repeat right;
+			  }
+			  ```
+			- ![image.png](../assets/image_1661154860294_0.png)
+			-
+## 反射
+	- 这个也可以说是倒影
+	- 语法：
+	- ```css
+	  -webkit-box-reflect:方向[ above-上 | below-下 | right-右 | left-左 ]，偏移量，遮罩图片
+	  ```
+	- #### 下倒影（渐变）
+	  collapsed:: true
+		- html
+		- ```html
+		  <p>下倒影（渐变）</p>
+		  <p class="reflect-bottom-p"><img src="test.jpg" class="reflect-bottom-mask"></p>
+		  ```
+		- css
+		- ```css
+		  reflect-bottom-mask {
+		      -webkit-box-reflect: below 0 linear-gradient(transparent, white);
+		  }
+		  ```
+		- ![image.png](../assets/image_1661155056745_0.png)
+		-
+		-
+- ## 文字
+	- ### 1. 换行
+	  collapsed:: true
+		- `word-break: normal|break-all|keep-all;`
+		- ![image.png](../assets/image_1661155393894_0.png)
+		- `word-wrap: normal|break-word;`
+		- ![image.png](../assets/image_1661155427326_0.png)
+		- > 超出省略号这个，主要讲 `text-overflow` 这个属性，我直接讲实例的原因是 `text-overflow` 的三个写法， `clip|ellipsis|string` 。 `clip` 这个方式处理不美观，不优雅。 `string` 只在火狐兼容。
+		- ![image.png](../assets/image_1661155443780_0.png)
+	- ### 2.超出省略号
+	  collapsed:: true
+		- 这个其实有三行代码，禁止换行，超出隐藏，超出省略号
+		- html
+		- ```html
+		  <div>This is some long text that will not fit in the box</div>
+		  ```
+		- css
+		- ```css
+		  div
+		  {
+		      width:200px; 
+		      border:1px solid #000000;
+		      overflow:hidden;
+		      white-space:nowrap; 
+		      text-overflow:ellipsis;
+		  }
+		  ```
+		- 运行结果
+		- ![image.png](../assets/image_1661155507581_0.png)
+	- ### 3. 多行超出省略号
+	  collapsed:: true
+		- 超出省略号。这个对于大家来说，不难！但是以前如果是多行超出省略号，就只能用js模拟！现在css3提供了多行省略号的方法！遗憾就是这个暂时只支持webkit浏览器！
+		- ```css
+		  div
+		  {
+		      width:400px;
+		      margin:0 auto;
+		      overflow : hidden;
+		      border:1px solid #ccc;
+		      text-overflow: ellipsis;
+		      display: -webkit-box;
+		      -webkit-line-clamp: 2;
+		      -webkit-box-orient: vertical;
+		  }
+		  ```
+		- 效果图
+		- ![image.png](../assets/image_1661155545851_0.png)
+		-
+	- ### 4. 文字阴影
+	  collapsed:: true
+		- `text-shadow:水平阴影，垂直阴影，模糊的距离，以及阴影的颜色`
+		- 案例：
+		- ```css
+		  text-shadow: 0 0 10px #f00;
+		  ```
+		- 效果
+		- ![image.png](../assets/image_1661155627662_0.png)
+		-
+## 颜色
+	- > 这个其实就是css3提供了新的颜色表示方法。
+	- ### rgba
+	  collapsed:: true
+		- 一个是rgba（rgb为颜色值，a为透明度）
+		- ```css
+		  color: rgba(255,00,00,1);
+		  background: rgba(00,00,00,.5);
+		  ```
+		- ![image.png](../assets/image_1661155712783_0.png)
+	- ### hsla
+	  collapsed:: true
+		- h:色相”，“s：饱和度”，“l：亮度”，“a：透明度”
+		- 这个我姿势了解过，没用过，这里简单给一个例子
+		- ```css
+		  color: hsla( 112, 72%, 33%, 0.68);
+		  background-color: hsla( 49, 65%, 60%, 0.68);
+		  ```
+		- ![image.png](../assets/image_1661155707005_0.png)
+## 渐变
+	- css3的渐变可以说是一大亮点，提供了线性渐变，径向渐变，圆锥渐变
+	- [再说CSS3渐变——线性渐变](https://link.segmentfault.com/?enc=r3mHe0r1zSG2mZgZIeNs4A%3D%3D.YCd4CIboxhaM09qCWRlFqENGonGc2Js3Ekewy2Jp3QnYu0kRsT3HWZvkCnklYxFuzteNyj0KkL9VyXycHJU7Vw%3D%3D)
+	- [再说CSS3渐变——径向渐变](https://link.segmentfault.com/?enc=KbOD30fr3P2nw%2FvoCFaaug%3D%3D.wffKTjlLp%2Fag6jBBv%2Fbp98AMI3AbZwcjtSHcD3bhUfFXEQQq3aquYu4LHePVkWl%2Fgmd9jb4y%2BwED%2FSn0UOl9wA%3D%3D)
+## Filter
+	- 待补充
+## 弹性布局
+	- [[flex布局]]
+## 栅格布局
+	- [[Grid]]
+## 多列布局
+	- html
+	- ```html
+	  <div class="newspaper">
+	  当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。
+	  </div>
+	  ```
+	- css
+	- ```css
+	  .newspaper
+	  {
+	      column-count: 3;
+	      -webkit-column-count: 3;
+	      -moz-column-count: 3;
+	      column-rule:2px solid #000;
+	      -webkit-column-rule:2px solid #000;
+	      -mox-column-rule:2px solid #000;
+	  }    
+	  ```
+	- ![image.png](../assets/image_1661155878578_0.png)
+## 媒体查询
+	- 媒体查询，就在监听屏幕尺寸的变化，在不同尺寸的时候显示不同的样式！在做响应式的网站里面，是必不可少的一环！
+	- ```html
+	  <!DOCTYPE html>
+	  <html>
+	  <head>
+	  <meta charset="utf-8"> 
+	  <title></title> 
+	  <style>
+	  body {
+	      background-color: pink;
+	  }
+	  @media screen and (max-width: 960px) {
+	      body {
+	          background-color: darkgoldenrod;
+	      }
+	  }
+	  @media screen and (max-width: 480px) {
+	      body {
+	          background-color: lightgreen;
+	      }
+	  }
+	  </style>
+	  </head>
+	  <body>
+	  
+	  <h1>重置浏览器窗口查看效果！</h1>
+	  <p>如果媒体类型屏幕的可视窗口宽度小于 960 px ，背景颜色将改变。</p>
+	  <p>如果媒体类型屏幕的可视窗口宽度小于 480 px ，背景颜色将改变。</p>
+	  
+	  </body>
+	  </html>
+	  ```
+	- 运行效果
+	- ![](https://segmentfault.com/img/bVTgPW?w=1022&h=157){:height 95, :width 563}
+## 混合模式
+	- css3的混合模式，两个（background-blend-mode和mix-blend-mode）。这两个写法和显示效果都非常像！区别就在于background-blend-mode是用于同一个元素的背景图片和背景颜色的。mix-blend-mode用于一个元素的背景图片或者颜色和子元素的。看以下代码，区别就出来了！
+	- ### background-blend-mode
+	- ### mix-blend-mode

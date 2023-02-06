@@ -1,0 +1,5 @@
+- 概述
+	- 可被不同得窗体得多个脚本运行，例如[[iframe]]等，只要这些workers处于同一主域。共享worker比专用worker稍微复杂一点-脚本必须通过活动端口进行通讯
+- 参考文档：
+	- [SharedWorker - Web API 接口参考 | MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/SharedWorker)
+-

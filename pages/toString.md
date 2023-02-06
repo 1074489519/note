@@ -1,0 +1,22 @@
+- 当调用对象的toString方法时，其实调用的是 [[Object.prototype.toString]] 方法。
+- toString返回值参照表
+	- | 调用者 | 返回值 | 返回值类型 |
+	  | ---- | ---- | ---- |
+	  | Array | 数组转字符串，相当于Array.join() | String |
+	  | Boolean | 转字符串'true'、'false' | String |
+	  | Date | 字符串日期，如'Fri Dec 23 2016 11:24:47 GMT+0800 (中国标准时间)' | String |
+	  | Number | 数字字符串 | String |
+	  | Object | '[object Object]' | String |
+	  | String | 字符串 | String |
+	-
+- 例如：
+	- ```js
+	  console.log(({}).toString()) // [object Object]
+	  
+	  console.log([].toString()) // ""
+	  console.log([0].toString()) // 0
+	  console.log([1, 2, 3].toString()) // 1,2,3
+	  console.log((function(){var a = 1;}).toString()) // function (){var a = 1;}
+	  console.log((/\d+/g).toString()) // /\d+/g
+	  console.log((new Date(2010, 0, 1)).toString()) // Fri Jan 01 2010 00:00:00 GMT+0800 (CST)
+	  ```

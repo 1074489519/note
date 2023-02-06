@@ -1,0 +1,7 @@
+- DOM问大姑加载步骤为： #.ol
+	- 解析HTML结构
+	- 加载外部脚本和样式表文件
+	- 解析并执行脚本代码
+	- DOM树构建完成               `DOMContentLoaded`触发、`$(document).ready`触发
+	- 加载图片等外部文件
+	- 页面加载完毕                    `load`触发
