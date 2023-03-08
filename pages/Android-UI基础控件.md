@@ -2,6 +2,7 @@
 	- ![截屏2023-02-19 21.36.04.png](../assets/截屏2023-02-19_21.36.04_1676813783311_0.png)
 	- ![截屏2023-02-19 21.36.33.png](../assets/截屏2023-02-19_21.36.33_1676813809972_0.png)
 - TextView
+  collapsed:: true
 	- 能完成的效果
 		- 对长文本进行显示处理
 		- 支持HTML代码
@@ -93,6 +94,7 @@
 			  }
 			  ```
 - ImageView
+  collapsed:: true
 	- 属性
 		- 设置路径：`android:src`
 		- 背景：`android:background`
@@ -101,6 +103,7 @@
 			  ```
 		-
 - ProgressBar
+  collapsed:: true
 	- 属性
 		- 设置风格：`style`
 		- 设置进度：`android:progress`
@@ -119,3 +122,45 @@
 		- 动态修改属性
 			- ```java
 			  ```
+-
+- CheckBox
+  collapsed:: true
+	- 两种状态：`setChecked()`/`isChecked()`
+	- 监听状态变化：setOnChechedChangeListener
+		- ```java
+		  checkedBox.setOnCheckedChangeListener(new CompundButton.OnCheckedChangeListener() {
+		    @Override
+		    public void onCheckedChanged(CompoundButton bv, boolean isChecked) {
+		      todo...
+		    }
+		  })
+		  ```
+- RadioButton
+	- 可以和RadioGroup一起使用
+- ToggleButton
+	- 开启文字：`android:textOn`
+	- 关闭文字：`android:textOff`
+	- 设置：`setChecked(boolean)`
+- 自定义控件
+	- ```java
+	  public class TitleLayout extends LinearLayout {
+	      public TitleLayout(Context context, @Nullable AttributeSet attrs) {
+	          super(context, attrs);
+	          LayoutInflater.from(context).inflate(R.layout.title, this);
+	          Button button = findViewById(R.id.button);
+	          button.setOnClickListener(view -> {
+	              Log.d("TAG", "title点击");
+	          });
+	      }
+	  }
+	  ```
+	- 使用
+	- ```xml
+	  // activity_main.xml
+	  <LinearLayout ...>
+	  
+	      <include layout="@layout/title" />
+	  	
+	    	...
+	  </LinearLayout>
+	  ```

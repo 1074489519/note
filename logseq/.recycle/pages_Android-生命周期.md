@@ -1,0 +1,9 @@
+- Activity
+	- onCreate
+	- onStart
+	- onResume
+	- onPause
+	- onStop
+	- onDestroy
+	- onRestart
+-
